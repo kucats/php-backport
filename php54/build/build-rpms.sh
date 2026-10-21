@@ -2,8 +2,8 @@
 # Public interpreter sources only; use an isolated Docker context.
 set -eu
 
-script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
-series_dir=$(CDPATH= cd -- "$script_dir/.." && pwd)
+script_dir=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)
+series_dir=$(CDPATH='' cd -- "$script_dir/.." && pwd)
 context=${PHP_BACKPORT_DOCKER_CONTEXT:?Set PHP_BACKPORT_DOCKER_CONTEXT to an isolated lab context}
 output=${PHP_BACKPORT_OUTPUT_DIR:-"$series_dir/out"}
 if [ -e "$output" ]; then
@@ -11,13 +11,18 @@ if [ -e "$output" ]; then
     exit 1
 fi
 mkdir -p "$output"
-output=$(CDPATH= cd -- "$output" && pwd)
+output=$(CDPATH='' cd -- "$output" && pwd)
 work=$(mktemp -d)
 container="php54-backport-build-$$"
-image="php54-backport-builder:local-$$"
+# PHP_BACKPORT_KEEP_IMAGE=<tag> keeps the builder image (original RPMs +
+# php-devel) for the isolated comparison in tests/run-comparison.sh.
+keep_image=${PHP_BACKPORT_KEEP_IMAGE:-}
+image=${keep_image:-"php54-backport-builder:local-$$"}
 cleanup() {
     docker --context "$context" rm -f "$container" >/dev/null 2>&1 || true
-    docker --context "$context" image rm "$image" >/dev/null 2>&1 || true
+    if [ -z "$keep_image" ]; then
+        docker --context "$context" image rm "$image" >/dev/null 2>&1 || true
+    fi
     rm -rf "$work"
 }
 trap cleanup EXIT HUP INT TERM

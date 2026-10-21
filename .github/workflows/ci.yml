@@ -1,0 +1,36 @@
+name: ci
+
+# Offline checks for every series directory (php54/, php56/, ...).
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Shell scripts
+        run: shellcheck --shell=sh --severity=warning php*/build/*.sh php*/tests/*.sh
+
+      - name: Python syntax
+        run: python3 -m py_compile ci/*.py php*/build/*.py php*/tests/*.py
+
+      - name: Series consistency (README, results, patch hash, PHPT comparison)
+        run: python3 ci/check_series.py
+
+      - name: Committed results are reproducible
+        run: git diff --exit-code

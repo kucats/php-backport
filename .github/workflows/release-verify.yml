@@ -1,0 +1,42 @@
+name: release-verify
+
+# Downloads every published release and checks its assets against
+# SHA256SUMS, release-manifest.json, GitHub's digests, the patches at
+# source_commit and the tested artifact hashes in <series>/tests/results/.
+on:
+  release:
+    types: [published, edited, prereleased, released]
+  push:
+    branches: [main]
+    paths: ['php*/README.md', 'php*/patches/**', 'php*/tests/results/artifact-manifest.json', 'ci/**', '.github/workflows/release-verify.yml']
+  pull_request:
+    paths: ['php*/README.md', 'php*/patches/**', 'php*/tests/results/artifact-manifest.json', 'ci/**', '.github/workflows/release-verify.yml']
+  schedule:
+    - cron: '17 3 * * 1'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag to verify (empty verifies all)
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+
+      - name: Install rpm for header checks
+        run: sudo apt-get update -q && sudo apt-get install -yq rpm
+
+      - name: Verify releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name || inputs.tag }}
+        run: python3 ci/verify_release.py --repo "$GITHUB_REPOSITORY" ${TAG:+"$TAG"}
