@@ -1,0 +1,192 @@
+{
+  "candidate": false,
+  "passed": 19,
+  "total": 19,
+  "tests": [
+    {
+      "name": "apache_mod_php_identity",
+      "pass": true,
+      "detail": {
+        "initial": {
+          "pid": 74,
+          "version": "5.4.16",
+          "sapi": "apache2handler",
+          "part_limit": false
+        },
+        "parent": 71
+      },
+      "seconds": 0.0
+    },
+    {
+      "name": "upload_download_range_delete",
+      "pass": true,
+      "detail": {
+        "bytes": 1114112,
+        "sha256": "137c9e1666cfcb65306e735136f12fe344f9f4efdc9641d674faa8325a285433",
+        "range_bytes": 101
+      },
+      "seconds": 0.045
+    },
+    {
+      "name": "ordinary_sessions",
+      "pass": true,
+      "detail": {
+        "session_persists": true
+      },
+      "seconds": 0.009
+    },
+    {
+      "name": "php54_language_and_crypt",
+      "pass": true,
+      "detail": {
+        "offset": "c",
+        "crypt": "vi69obcEbvghg",
+        "preg": 1,
+        "split": [
+          "a",
+          "b"
+        ],
+        "utf8_bytes": 9
+      },
+      "seconds": 0.004
+    },
+    {
+      "name": "synthetic_sync_file_contract",
+      "pass": true,
+      "detail": {
+        "ok": true
+      },
+      "seconds": 0.004
+    },
+    {
+      "name": "upload_progress_early_session_path",
+      "pass": true,
+      "detail": {
+        "progress_state_created": true,
+        "ordinary_upload_ok": true
+      },
+      "seconds": 0.006
+    },
+    {
+      "name": "multipart_total_part_limit",
+      "pass": true,
+      "detail": {
+        "accepted_fields": 12
+      },
+      "seconds": 0.003
+    },
+    {
+      "name": "empty_file_controls_count_toward_total",
+      "pass": true,
+      "detail": {
+        "empty_file_controls_registered": 1500
+      },
+      "seconds": 0.055
+    },
+    {
+      "name": "bounded_unknown_multipart_header_memory",
+      "pass": true,
+      "detail": {
+        "request_bytes": 9000106,
+        "request_success": false,
+        "peak": null
+      },
+      "seconds": 0.731
+    },
+    {
+      "name": "bounded_duplicate_multipart_header_memory",
+      "pass": true,
+      "detail": {
+        "request_bytes": 6500106,
+        "request_success": false,
+        "peak": null
+      },
+      "seconds": 0.121
+    },
+    {
+      "name": "nested_input_and_existing_depth_limit",
+      "pass": true,
+      "detail": {
+        "normal_nesting_preserved": true,
+        "excessive_nesting_rejected": true
+      },
+      "seconds": 0.003
+    },
+    {
+      "name": "multipart_startup_oom_before_application",
+      "pass": true,
+      "detail": {
+        "worker_replaced": false,
+        "parent_alive": true,
+        "field_bytes": 33554432
+      },
+      "seconds": 0.062
+    },
+    {
+      "name": "oom_fail_fast_worker_replacement",
+      "pass": true,
+      "detail": {
+        "worker_replaced": false,
+        "shutdown_callback_ran": true,
+        "parent_alive": true
+      },
+      "seconds": 0.009
+    },
+    {
+      "name": "underlying_storage_allocation_failure",
+      "pass": true,
+      "detail": {
+        "worker_replaced": false,
+        "shutdown_callback_ran": true,
+        "parent_alive": true
+      },
+      "seconds": 0.007
+    },
+    {
+      "name": "allocation_size_overflow_failure",
+      "pass": true,
+      "detail": {
+        "worker_replaced": false,
+        "shutdown_callback_ran": true,
+        "parent_alive": true
+      },
+      "seconds": 0.006
+    },
+    {
+      "name": "fatal_warning_cleanup_repeated_worker",
+      "pass": true,
+      "detail": {
+        "cycles": 25,
+        "worker_count": 1,
+        "parent_alive": true
+      },
+      "seconds": 0.196
+    },
+    {
+      "name": "state_before_next_request_initialization",
+      "pass": true,
+      "detail": {
+        "early_request_state_mask": 608
+      },
+      "seconds": 0.005
+    },
+    {
+      "name": "execution_timeout_then_next_request",
+      "pass": true,
+      "detail": {
+        "worker_survived_timeout": true
+      },
+      "seconds": 1.009
+    },
+    {
+      "name": "large_streaming_upload",
+      "pass": true,
+      "detail": {
+        "file_bytes": 2096103424,
+        "sha256": "f7e9f1febf7939dad31161982e48ac200f608250a2dd461336ca00f6b6aef890",
+        "peak_php_memory": 524288
+      },
+      "seconds": 32.772
+    }
+  ]
+}

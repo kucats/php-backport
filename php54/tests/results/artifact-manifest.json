@@ -1,0 +1,46 @@
+{
+  "date_jst": "2026-10-22",
+  "candidate_release": "5.4.16-48.el7.kucsec1",
+  "candidate_module_sha256": "7cc055d5c942b5bd2defb68ecf53f628c4e148fca409f20a22c106ca6e316a2f",
+  "original_module_sha256": "fa5c2bf138b71b8ae587370109e8b0b4fea316ac392174209365bb6ce5d0cad4",
+  "candidate_rpms_signed": false,
+  "patch_sha256": "ebe773803c0d020bfe1d2153e586eb702ab1f8a5b25625602da370ca1b522747",
+  "files": {
+    "rpms/php-5.4.16-48.el7.kucsec1.x86_64.rpm": {
+      "sha256": "53e415d7ab2cfaba9026f3e5067a5441867e65dfc86bdbe98610c3be54d1e5ac",
+      "bytes": 1418028
+    },
+    "rpms/php-common-5.4.16-48.el7.kucsec1.x86_64.rpm": {
+      "sha256": "b654a566695e186920254d4c0c94de214a5dc7cefc72b246395596f20d8d6d02",
+      "bytes": 577764
+    },
+    "rpms/php-cli-5.4.16-48.el7.kucsec1.x86_64.rpm": {
+      "sha256": "46497043c145e84556167547fec59e722ccddccc2aa427b37e747f00ee62c01b",
+      "bytes": 2872864
+    },
+    "rpms/php-mbstring-5.4.16-48.el7.kucsec1.x86_64.rpm": {
+      "sha256": "7362e3257752cafb185cafd23ad09971ff8489bdef1a7d39ff3ede7e97f7c48b",
+      "bytes": 516496
+    },
+    "srpms/php-5.4.16-48.el7.kucsec1.src.rpm": {
+      "sha256": "5160cd7c3c99f2043dc07a38517c7642ddd77e6b57d38434807ef8712dfb05e3",
+      "bytes": 11974397
+    },
+    "original-rpms/php-5.4.16-48.el7.x86_64.rpm": {
+      "sha256": "82969b28409b268f182c1575b908c54258c80c3cbb8db8bc4fa6e735c54e4535",
+      "bytes": 1421660
+    },
+    "original-rpms/php-cli-5.4.16-48.el7.x86_64.rpm": {
+      "sha256": "b57143cc23e9ec024098d8b6f381d11e91b8ab65a02230c3d592949cef8f7063",
+      "bytes": 2880032
+    },
+    "original-rpms/php-common-5.4.16-48.el7.x86_64.rpm": {
+      "sha256": "b46504ad8d86abc1480ab54fe3c76b4c2e061f6d6ea7c216112579e89b03854c",
+      "bytes": 578968
+    },
+    "original-rpms/php-mbstring-5.4.16-48.el7.x86_64.rpm": {
+      "sha256": "c01424f1545f2f2b4a5d82dc110c633790309c5c56022bf026f8f89fc601d7cb",
+      "bytes": 517760
+    }
+  }
+}

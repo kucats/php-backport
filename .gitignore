@@ -1,0 +1,12 @@
+.DS_Store
+__pycache__/
+*.pyc
+out/
+work/
+*.rpm
+*.tar.gz
+*.tar.bz2
+.env
+.env.*
+*.key
+*.pem

@@ -1,0 +1,4 @@
+# Preserve upstream license bytes, unified-diff context, and raw PHPT output.
+LICENSES/*.txt -whitespace
+*.patch -whitespace
+php54/tests/results/*-phpt.log -whitespace
