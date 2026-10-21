@@ -47,6 +47,20 @@ sh php54/build/build-rpms.sh
 元 spec の全 self-test は `runselftest 0` で無効化しています。
 ビルド成功をテスト成功と読み替えないでください。
 
+## RPM ダウンロード
+
+[GitHub Release: php54-5.4.16-48.el7.kucsec1](https://github.com/kucats/php-backport/releases/tag/php54-5.4.16-48.el7.kucsec1)
+に同一ビルドのバイナリー RPM 一式、SRPM、パッチ、`SHA256SUMS` と
+`release-manifest.json` を添付しています。手動バックポート候補の prerelease です。
+動作検証したのは php/common/cli/mbstring の四パッケージ。
+追加拡張・FPM・embedded・ZTS の動作保証はしていません。
+
+適用前に `SHA256SUMS`、依存関係、実際の INI 読み込み状態を確認してください。
+CentOS 7 x86_64 の標準モジュール配置は `/usr/lib64/php/modules` です。
+古い php.ini に `/usr/lib/php/modules` を固定したままだと、RPM がインストール
+されても mbstring 等をロードできず、アプリケーションが失敗する場合があります。
+`php --ini` と `php -r 'var_dump(function_exists("mb_strlen"));'` で確認できます。
+
 ## 検証結果
 
 - 修正前/修正後の実 Apache 比較: それぞれ **19/19**。
