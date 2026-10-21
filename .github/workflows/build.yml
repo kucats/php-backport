@@ -1,0 +1,132 @@
+name: build
+
+# Rebuilds each touched series from its public source package and runs the
+# synthetic comparison of original vs patched packages in containers without
+# network. A series joins by providing build/build-rpms.sh and
+# tests/run-comparison.sh (see ci/series.py).
+on:
+  push:
+    branches: [main]
+    paths: ['php*/**', 'ci/**', '.github/workflows/build.yml']
+  pull_request:
+    paths: ['php*/**', 'ci/**', '.github/workflows/build.yml']
+  workflow_dispatch:
+    inputs:
+      series:
+        description: Series to build, e.g. php54 (empty builds all)
+        default: ""
+      large_mib:
+        description: Streaming upload test size in MiB (0 skips it)
+        default: "0"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  select:
+    runs-on: ubuntu-24.04
+    outputs:
+      series: ${{ steps.select.outputs.series }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - id: select
+        env:
+          EVENT: ${{ github.event_name }}
+          INPUT_SERIES: ${{ inputs.series }}
+          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          if [ "$EVENT" = workflow_dispatch ]; then
+            if [ -n "$INPUT_SERIES" ]; then
+              series=$(python3 ci/series.py --buildable | python3 -c 'import json,sys; s=json.load(sys.stdin); w=sys.argv[1]; sys.exit(f"{w} is not buildable") if w not in s else print(json.dumps([w]))' "$INPUT_SERIES")
+            else
+              series=$(python3 ci/series.py --buildable)
+            fi
+          elif [ -z "$BASE" ] || ! git cat-file -e "$BASE^{commit}" 2>/dev/null; then
+            series=$(python3 ci/series.py --buildable)
+          else
+            series=$(python3 ci/series.py --buildable --changed-from "$BASE")
+          fi
+          echo "series=$series" >>"$GITHUB_OUTPUT"
+          echo "Selected: $series"
+
+  build:
+    needs: select
+    if: needs.select.outputs.series != '[]'
+    strategy:
+      fail-fast: false
+      matrix:
+        series: ${{ fromJSON(needs.select.outputs.series) }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    env:
+      PHP_BACKPORT_DOCKER_CONTEXT: default
+      PHP_BACKPORT_KEEP_IMAGE: ${{ matrix.series }}-backport-builder:ci
+      OUT: ${{ github.workspace }}/out/${{ matrix.series }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Build packages
+        env:
+          PHP_BACKPORT_OUTPUT_DIR: ${{ env.OUT }}/build
+        run: sh "${{ matrix.series }}/build/build-rpms.sh"
+
+      - name: Compare original and patched packages
+        env:
+          PHP_BACKPORT_IMAGE: ${{ env.PHP_BACKPORT_KEEP_IMAGE }}
+          PHP_BACKPORT_RPM_DIR: ${{ env.OUT }}/build
+          PHP_BACKPORT_RESULT_DIR: ${{ env.OUT }}/results
+          PHP_BACKPORT_LARGE_MIB: ${{ inputs.large_mib || '0' }}
+        run: sh "${{ matrix.series }}/tests/run-comparison.sh"
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## ${{ matrix.series }}" >>"$GITHUB_STEP_SUMMARY"
+          for f in "$OUT"/results/*.json; do
+            [ -f "$f" ] || continue
+            python3 - "$f" >>"$GITHUB_STEP_SUMMARY" <<'PY'
+          import json, sys
+          from pathlib import Path
+          d = json.loads(Path(sys.argv[1]).read_text())
+          print(f"### {Path(sys.argv[1]).stem}: {d.get('passed', '?')}/{d.get('total', '?')}\n")
+          for t in d.get('tests', []):
+              print(f"- {'✅' if t['pass'] else '❌'} {t['name']}" + ('' if t['pass'] else f": {t.get('error', '')}"))
+          print()
+          PY
+          done
+          if [ -d "$OUT/build/RPMS" ]; then
+            {
+              echo '### Built packages (not the published release; build hashes are not reproducible)'
+              echo '```'
+              (cd "$OUT/build" && find RPMS SRPMS -name '*.rpm' -exec sha256sum {} +)
+              echo '```'
+            } >>"$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload log and results
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ${{ matrix.series }}-results
+          path: |
+            out/${{ matrix.series }}/build/build.log
+            out/${{ matrix.series }}/results/
+          if-no-files-found: ignore
+
+      - name: Upload packages
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ${{ matrix.series }}-packages
+          path: |
+            out/${{ matrix.series }}/build/RPMS/
+            out/${{ matrix.series }}/build/SRPMS/
+          retention-days: 7

@@ -34,6 +34,10 @@ python3 /lab/run_http.py --candidate --large-mib 1999 --output /lab/state/candid
 約 2 GB の一時ディスク領域が必要です。試験は Apache を別 process group で起動し、
 終了時に停止します。実サービスの URL を指定する機能はありません。
 
+CI（`build` ワークフロー）では `build-rpms.sh` を `PHP_BACKPORT_KEEP_IMAGE` 付きで実行し、
+残したビルドイメージで `run-comparison.sh` が上記 1〜4 を修正前/修正後それぞれの
+`--network none` コンテナで自動実行します。既定では大容量アップロード試験は省略します。
+
 ## 保存済み結果
 
 `results/baseline.json` と `candidate.json` は各 19/19、`recovery.json` は 18/18。
