@@ -55,6 +55,13 @@ This product includes the Zend Engine, freely available at
 <http://www.zend.com>. The Zend Engine is freely available at
 <http://www.zend.com>.
 
-元ソース由来のコードには [PHP License 3.01](LICENSES/PHP-3.01.txt) と
+## License
+
+このリポジトリで独自に作成したファイル（CI、ビルド・試験補助、ドキュメント等）は
+[PHP License 3.01](LICENSE) で提供します。
+
+元ソース由来のコード（PHP・Zend Engine のソースへのパッチ等）には元のライセンス、
+すなわち [PHP License 3.01](LICENSES/PHP-3.01.txt) と
 [Zend Engine License 2.00](LICENSES/Zend-2.00.txt) が適用されます。
+ベンダー SRPM 由来の `php.spec` 等は元パッケージのライセンスに従います。
 このリポジトリは元プロジェクトによる推奨・承認を表すものではありません。
