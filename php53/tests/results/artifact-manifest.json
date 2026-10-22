@@ -1,0 +1,55 @@
+{
+  "candidate_release": "5.3.3-50.el6_10.kucsec1",
+  "source_rpm_sha256": "ddd0f179582dda7b9f0ef2936948e62455509a7ee651ecc24e33468a20b9b10a",
+  "architecture": "x86_64",
+  "tested_package_count": 8,
+  "files": {
+    "php-5.3.3-50.el6_10.kucsec1.x86_64.rpm": {
+      "sha256": "205fdd0bbdda9989b79174e4e7fe181c2149e3a49439a70368a98cb9cb09c7b9",
+      "bytes": 1186860,
+      "kind": "rpm"
+    },
+    "php-cli-5.3.3-50.el6_10.kucsec1.x86_64.rpm": {
+      "sha256": "080b455be26bc5a62cd39f431ea93a5062c9b89660ddf483eb23bbe85f3994d6",
+      "bytes": 2290924,
+      "kind": "rpm"
+    },
+    "php-common-5.3.3-50.el6_10.kucsec1.x86_64.rpm": {
+      "sha256": "7bae3320e8339b0237d9396a461311819d76e10913d3de24ee74332d8e6ac694",
+      "bytes": 541532,
+      "kind": "rpm"
+    },
+    "php-devel-5.3.3-50.el6_10.kucsec1.x86_64.rpm": {
+      "sha256": "c24030a733235574b1496abac73bf1143649bb69a932bd69e1c8ec2b35a0dc98",
+      "bytes": 524380,
+      "kind": "rpm"
+    },
+    "php-mbstring-5.3.3-50.el6_10.kucsec1.x86_64.rpm": {
+      "sha256": "13db48ec8a5438c2055370773477097302127ce0b45c9057f29a0e0bcad8f1aa",
+      "bytes": 470268,
+      "kind": "rpm"
+    },
+    "php-mysql-5.3.3-50.el6_10.kucsec1.x86_64.rpm": {
+      "sha256": "56dcf8b00da978fd7d7380db90d843127137eb08c510c331ffc3dde2fc37b925",
+      "bytes": 87576,
+      "kind": "rpm"
+    },
+    "php-pdo-5.3.3-50.el6_10.kucsec1.x86_64.rpm": {
+      "sha256": "f7323a0ae424d71f1d356fce512756795e81c7a2f5b302b848ce8bd9e58c371c",
+      "bytes": 80936,
+      "kind": "rpm"
+    },
+    "php-xml-5.3.3-50.el6_10.kucsec1.x86_64.rpm": {
+      "sha256": "709181ebabc5dbbbbda73662cd855befa813bcd219fa6e6cc202697393f43e09",
+      "bytes": 109812,
+      "kind": "rpm"
+    }
+  },
+  "build_outputs_are_unsigned": true,
+  "archive": {
+    "name": "php53-kucsec1-rpms.tar.gz",
+    "sha256": "49a4fda3cb536990b035cb4ea52bb358a7fadd462067ada35002438586d0f14f"
+  },
+  "scope": "Linux x86_64 NTS CLI/CGI; Apache mod_php for EOL, FPM for PHP 8.3. Other SAPIs and ZTS not accepted by these runtime tests.",
+  "patch_sha256": "039c5e2415d8929c164c08b0149e37a07fa710751996b6c1f12334134c9e59c6"
+}

@@ -1,0 +1,27 @@
+--- a/php.spec
++++ b/php.spec
+@@ -119,7 +119,7 @@
+ #%if 0%{?snapdate:1}%{?rcver:1}
+ #Release: 0.5.%{?snapdate}%{?rcver}%{?dist}.art.art
+ #%else
+-Release: 56.art
++Release: 56%{?dist}.art.kucsec1
+ #%endi
+ # All files licensed under PHP version 3.01, except
+ # Zend is licensed under Zend
+@@ -190,6 +190,7 @@
+ Patch605: php-5.4.45-CVE-2015-7804.patch
+ Patch611: php-5.3.29-CVE-2016-3074.patch
+ Patch612: php-5.4.16-CVE-2016-5385.patch
++Patch999: php-5.4.45-el5-cve-2026-109618-109619.patch
+ 
+ 
+ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+@@ -875,6 +876,7 @@
+ %patch605 -p1
+ %patch611 -p1
+ %patch612 -p1
++%patch999 -p1 -b .kucsec1
+ 
+ # Temporary workaround for https://bugs.php.net/65460
+ # Regenerated bison files

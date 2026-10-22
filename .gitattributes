@@ -2,3 +2,7 @@
 LICENSES/*.txt -whitespace
 *.patch -whitespace
 php54/tests/results/*-phpt.log -whitespace
+
+# Preserve vendor SPEC formatting and raw test output for the added series.
+php*/packaging/php.spec -whitespace
+php*/tests/results/*phpt.log -whitespace

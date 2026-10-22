@@ -1,0 +1,54 @@
+{
+  "candidate_release": "8.3.36-1.el10_2.kucsec1",
+  "source_rpm_sha256": "d4350267bdedbe046d2f3cafe054be9b0ddc7077136f0be76a3910da95ea8e34",
+  "architecture": "x86_64",
+  "tested_package_count": 8,
+  "files": {
+    "php-8.3.36-1.el10_2.kucsec1.x86_64.rpm": {
+      "sha256": "c13c6400274915db7416a41ecdaf0de7519ea5fa3bad8891b7467357dbf332ed",
+      "bytes": 7961,
+      "kind": "rpm"
+    },
+    "php-cli-8.3.36-1.el10_2.kucsec1.x86_64.rpm": {
+      "sha256": "53b61365bb68a79e4b96e835c77ad19998f117ba8a7c37eb0ea7c09d2dbfec16",
+      "bytes": 2358970,
+      "kind": "rpm"
+    },
+    "php-common-8.3.36-1.el10_2.kucsec1.x86_64.rpm": {
+      "sha256": "4ab01a72c5360658970f4eab107054dd88c6d071d9f5b0dce16e52862045bfe3",
+      "bytes": 727282,
+      "kind": "rpm"
+    },
+    "php-fpm-8.3.36-1.el10_2.kucsec1.x86_64.rpm": {
+      "sha256": "c5da80e24628d8256519329ec404eb56e22253853b24ed3c5a373b631cc96574",
+      "bytes": 1965156,
+      "kind": "rpm"
+    },
+    "php-mbstring-8.3.36-1.el10_2.kucsec1.x86_64.rpm": {
+      "sha256": "e53f921592f9e4336a3c3f3a52a926e91cea0607c1dbf252f42598f422f0fbde",
+      "bytes": 530845,
+      "kind": "rpm"
+    },
+    "php-opcache-8.3.36-1.el10_2.kucsec1.x86_64.rpm": {
+      "sha256": "de9e7b29242bad3741a835b586aa7c4b2f5ab0c460116c5ec0d7340e99746d0a",
+      "bytes": 372297,
+      "kind": "rpm"
+    },
+    "php-pdo-8.3.36-1.el10_2.kucsec1.x86_64.rpm": {
+      "sha256": "663593fe6471a25bd4acf93c0acf724c550bcdf0c42774d5cc42983352f0f6cf",
+      "bytes": 86551,
+      "kind": "rpm"
+    },
+    "php-xml-8.3.36-1.el10_2.kucsec1.x86_64.rpm": {
+      "sha256": "6bc4fca275708dcca240d4655e98a0fe0049183a50e4921eff2c507148b19bbf",
+      "bytes": 149517,
+      "kind": "rpm"
+    }
+  },
+  "build_outputs_are_unsigned": true,
+  "archive": {
+    "name": "php83-kucsec1-rpms.tar.gz",
+    "sha256": "f66506760de6d85cb5facb097f981af9d40c6fbd56b2484cb075afcc58a823fa"
+  },
+  "scope": "Linux x86_64 NTS CLI/CGI; Apache mod_php for EOL, FPM for PHP 8.3. Other SAPIs and ZTS not accepted by these runtime tests."
+}

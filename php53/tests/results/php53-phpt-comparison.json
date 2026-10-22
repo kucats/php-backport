@@ -1,0 +1,28 @@
+{
+  "comparison_pass": true,
+  "baseline_counts": {
+    "PASS": 261,
+    "FAIL": 9,
+    "SKIP": 1
+  },
+  "candidate_counts": {
+    "PASS": 261,
+    "FAIL": 9,
+    "SKIP": 1
+  },
+  "expected_behavior_changes": {},
+  "unexpected_changes": {},
+  "unchanged_test_count": 271,
+  "baseline_failures": [
+    "ext/session/tests/014.phpt",
+    "ext/session/tests/015.phpt",
+    "ext/session/tests/018.phpt",
+    "ext/session/tests/020.phpt",
+    "ext/session/tests/021.phpt",
+    "ext/session/tests/bug36459.phpt",
+    "ext/session/tests/bug41600.phpt",
+    "ext/session/tests/session_encode_error2.phpt",
+    "tests/basic/php_egg_logo_guid.phpt"
+  ],
+  "note": "Native build-tree CLI/CGI comparison. All 271 statuses match; nine baseline failures remain failures. Final RPM HTTP acceptance is recorded separately."
+}

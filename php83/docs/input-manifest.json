@@ -1,0 +1,16 @@
+{
+  "status": "native-build-and-isolated-runtime-validation-completed",
+  "source_rpm": "php-8.3.33-1.el10_2.src.rpm",
+  "source_rpm_sha256": "d4350267bdedbe046d2f3cafe054be9b0ddc7077136f0be76a3910da95ea8e34",
+  "source_url": "https://dl.rockylinux.org/pub/rocky/10.2/AppStream/source/tree/Packages/p/php-8.3.33-1.el10_2.src.rpm",
+  "candidate_release": "8.3.36-1.el10_2.kucsec1",
+  "architecture": "x86_64",
+  "upstream_tar": "php-8.3.36.tar.xz",
+  "upstream_tar_sha256": "dd54693aa334c5c4d72e9aee96b082c2473750a18a6c1d105789c93a3b1692fd",
+  "upstream_signature_fingerprint": "4B1FC0D9DF92321CED9F615DBEC555E22A143553",
+  "repository_input_sha256": {
+    "packaging/php.spec": "5159f1fd9a2cb6a433a36b0077db4621b1a0e174f53a623846200efa96f272a2",
+    "packaging/spec.patch": "a4204cf13ecc1faa795681c24d69fe868ba14d2fa5c7873777a3cad4f25853a1"
+  },
+  "scope": "Linux x86_64 NTS CLI/CGI; Apache mod_php for EOL, FPM for PHP 8.3. Other SAPIs and ZTS not accepted by these runtime tests."
+}

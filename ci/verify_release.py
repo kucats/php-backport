@@ -28,7 +28,7 @@ import tempfile
 
 from series import ROOT, all_series
 
-TAG_RE = re.compile(r'^(php\d+)-(.+)$')
+TAG_RE = re.compile(r'^(php\d+(?:-el\d+)?)-(.+)$')
 LINK_RE = re.compile(r'releases/tag/([A-Za-z0-9._-]+)')
 CONTROL = {'SHA256SUMS', 'release-manifest.json'}
 errors = []
