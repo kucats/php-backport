@@ -1,0 +1,17 @@
+--- a/php.spec
++++ b/php.spec
+@@ -63,12 +63,12 @@
+ %bcond_with      imap
+ %bcond_without   lmdb
+ 
+-%global upver        8.3.33
++%global upver        8.3.36
+ 
+ Summary: PHP scripting language for creating dynamic web sites
+ Name: php
+ Version: %{upver}%{?rcver:~%{rcver}}
+-Release: 1%{?dist}
++Release: 1%{?dist}.kucsec1
+ # All files licensed under PHP version 3.01, except
+ # Zend is licensed under Zend
+ # TSRM is licensed under BSD

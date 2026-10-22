@@ -1,0 +1,15 @@
+{
+  "status": "native-build-and-isolated-runtime-validation-completed",
+  "source_rpm": "php-5.3.3-50.el6_10.src.rpm",
+  "source_rpm_sha256": "ddd0f179582dda7b9f0ef2936948e62455509a7ee651ecc24e33468a20b9b10a",
+  "source_url": "https://archive.kernel.org/centos-vault/6.10/updates/Source/SPackages/php-5.3.3-50.el6_10.src.rpm",
+  "candidate_release": "5.3.3-50.el6_10.kucsec1",
+  "architecture": "x86_64",
+  "applicable_vendor_patch_count": 114,
+  "repository_input_sha256": {
+    "patches/php-5.3.3-cve-2026-109618-109619.patch": "039c5e2415d8929c164c08b0149e37a07fa710751996b6c1f12334134c9e59c6",
+    "packaging/php.spec": "120038dcece4dff0c7f93e74dd9e0a8b979f25ac11f3545fbf089d1b089f693e",
+    "packaging/spec.patch": "ce65bdf9b856612bebf86a63f11cc4912f73a9e28f2d99cfaf5858882781a9f4"
+  },
+  "scope": "Linux x86_64 NTS CLI/CGI; Apache mod_php for EOL, FPM for PHP 8.3. Other SAPIs and ZTS not accepted by these runtime tests."
+}

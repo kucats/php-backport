@@ -16,7 +16,7 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parent.parent
-SERIES_RE = re.compile(r'^php\d+$')
+SERIES_RE = re.compile(r'^php\d+(?:-el\d+)?$')
 # A series joins the build matrix by providing both entry points.
 BUILD_ENTRY = ('build/build-rpms.sh', 'tests/run-comparison.sh')
 SHARED_PREFIXES = ('ci/', '.github/workflows/build.yml')

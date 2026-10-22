@@ -1,0 +1,51 @@
+{
+  "comparison_pass": true,
+  "baseline_counts": {
+    "PASS": 344,
+    "SKIP": 4,
+    "FAIL": 1
+  },
+  "candidate_counts": {
+    "PASS": 336,
+    "SKIP": 4,
+    "FAIL": 9
+  },
+  "expected_behavior_changes": {
+    "ext/session/tests/rfc1867.phpt": {
+      "baseline": "PASS",
+      "candidate": "FAIL"
+    },
+    "ext/session/tests/rfc1867_inter.phpt": {
+      "baseline": "PASS",
+      "candidate": "FAIL"
+    },
+    "ext/session/tests/rfc1867_sid_cookie.phpt": {
+      "baseline": "PASS",
+      "candidate": "FAIL"
+    },
+    "ext/session/tests/rfc1867_sid_get.phpt": {
+      "baseline": "PASS",
+      "candidate": "FAIL"
+    },
+    "ext/session/tests/rfc1867_sid_get_2.phpt": {
+      "baseline": "PASS",
+      "candidate": "FAIL"
+    },
+    "ext/session/tests/rfc1867_sid_invalid.phpt": {
+      "baseline": "PASS",
+      "candidate": "FAIL"
+    },
+    "ext/session/tests/rfc1867_sid_only_cookie.phpt": {
+      "baseline": "PASS",
+      "candidate": "FAIL"
+    },
+    "ext/session/tests/rfc1867_sid_post.phpt": {
+      "baseline": "PASS",
+      "candidate": "FAIL"
+    }
+  },
+  "unexpected_changes": {},
+  "unchanged_test_count": 341,
+  "baseline_failure": "tests/basic/php_egg_logo_guid.phpt: removed by vendor Patch41",
+  "note": "Eight upload-progress expectations intentionally differ. Raw PHPT failures remain failures."
+}

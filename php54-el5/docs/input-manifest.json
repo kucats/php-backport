@@ -1,0 +1,15 @@
+{
+  "status": "native-build-and-isolated-runtime-validation-completed",
+  "source_rpm": "php-5.4.45-56.art.src.rpm",
+  "source_rpm_sha256": "616c8247bc99f1b8127861a750fdf51ef05cfd76c98b975cd1acac5e39f59107",
+  "source_url": "https://updates.atomicorp.com/channels/source/php/php-5.4.45-56.art.src.rpm",
+  "candidate_release": "5.4.45-56.el5.art.kucsec1",
+  "architecture": "x86_64",
+  "applicable_vendor_patch_count": 20,
+  "repository_input_sha256": {
+    "patches/php-5.4.45-el5-cve-2026-109618-109619.patch": "50e33a72ed695bae36799111767141d2cad00dda0aaea87e5c02d9b694b5ee3e",
+    "packaging/php.spec": "e1ce0954ef9a27a4d2dce7f5e40657f64a3fefe8fcdb2dd9cdc18ed1deaeefdb",
+    "packaging/spec.patch": "b7eec93542a3bed3aba0bd04211263f9ebf7106b39f6a7790418e3f6a2116113"
+  },
+  "scope": "Linux x86_64 NTS CLI/CGI; Apache mod_php for EOL, FPM for PHP 8.3. Other SAPIs and ZTS not accepted by these runtime tests."
+}

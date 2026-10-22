@@ -1,0 +1,12 @@
+#!/bin/sh
+# Some upstream CGI PHPT helpers explicitly pass -n and discard the CLI INI.
+set -eu
+no_ini=0
+has_mb=0
+for argument in "$@"; do
+    case "$argument" in -n) no_ini=1;; *extension=mbstring.so*) has_mb=1;; esac
+done
+if [ "$no_ini" = 1 ] && [ "$has_mb" = 0 ]; then
+    exec /usr/bin/php-cgi -d extension=mbstring.so "$@"
+fi
+exec /usr/bin/php-cgi "$@"

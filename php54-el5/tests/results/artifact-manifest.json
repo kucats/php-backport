@@ -1,0 +1,55 @@
+{
+  "candidate_release": "5.4.45-56.el5.art.kucsec1",
+  "source_rpm_sha256": "616c8247bc99f1b8127861a750fdf51ef05cfd76c98b975cd1acac5e39f59107",
+  "architecture": "x86_64",
+  "tested_package_count": 8,
+  "files": {
+    "php-5.4.45-56.el5.art.kucsec1.x86_64.rpm": {
+      "sha256": "0e39731b301f737bb6206dd44f2b012f4edb6e01972e35d6261b2cbcba616470",
+      "bytes": 10401247,
+      "kind": "rpm"
+    },
+    "php-cli-5.4.45-56.el5.art.kucsec1.x86_64.rpm": {
+      "sha256": "75896777a109837cd81b05d7385582b20d8d4aeb6d5c4ddf31e5c3b45d13c9a6",
+      "bytes": 3468953,
+      "kind": "rpm"
+    },
+    "php-common-5.4.45-56.el5.art.kucsec1.x86_64.rpm": {
+      "sha256": "72acaa0d82b004ed3451d40703128f1e88a758f1b1ed3e417abcff5428e49a2f",
+      "bytes": 2272635,
+      "kind": "rpm"
+    },
+    "php-gd-5.4.45-56.el5.art.kucsec1.x86_64.rpm": {
+      "sha256": "057347a0cb4fcddebaf6b4e5f6542fdbf59f1d3d4e791e6aa73db4b1183bc59a",
+      "bytes": 637899,
+      "kind": "rpm"
+    },
+    "php-mbstring-5.4.45-56.el5.art.kucsec1.x86_64.rpm": {
+      "sha256": "2a30df158975a383459e5eeb8856fdbb57063ac306db8b107e206cbbb4ac2569",
+      "bytes": 1961614,
+      "kind": "rpm"
+    },
+    "php-mcrypt-5.4.45-56.el5.art.kucsec1.x86_64.rpm": {
+      "sha256": "eb44f87e5a80eefaceb7943b53478c45fdda923da9ec46c611b36283e01a76e2",
+      "bytes": 124604,
+      "kind": "rpm"
+    },
+    "php-mysql-5.4.45-56.el5.art.kucsec1.x86_64.rpm": {
+      "sha256": "32c26e47c79cb51f8c842c26424782ebd13940fcfae06c433992402010754a4f",
+      "bytes": 649415,
+      "kind": "rpm"
+    },
+    "php-pdo-5.4.45-56.el5.art.kucsec1.x86_64.rpm": {
+      "sha256": "cfa65c673d0e5a8fec3e9c5b60fd3cb421904d7ae84b26fb54b31ff4b37bd0f1",
+      "bytes": 361811,
+      "kind": "rpm"
+    }
+  },
+  "build_outputs_are_unsigned": true,
+  "archive": {
+    "name": "php54-el5-kucsec1-rpms.tar.gz",
+    "sha256": "ff6a8cc41dec05631214f874adf7b8b9e57263c2e7f8e1de386bae27224a535b"
+  },
+  "scope": "Linux x86_64 NTS CLI/CGI; Apache mod_php for EOL, FPM for PHP 8.3. Other SAPIs and ZTS not accepted by these runtime tests.",
+  "patch_sha256": "50e33a72ed695bae36799111767141d2cad00dda0aaea87e5c02d9b694b5ee3e"
+}

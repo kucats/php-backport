@@ -1,0 +1,191 @@
+{
+  "candidate": false,
+  "passed": 19,
+  "total": 19,
+  "tests": [
+    {
+      "name": "apache_mod_php_identity",
+      "pass": true,
+      "detail": {
+        "initial": {
+          "pid": 20168,
+          "version": "5.3.3",
+          "sapi": "apache2handler",
+          "part_limit": false
+        },
+        "parent": 20167
+      },
+      "seconds": 0.0
+    },
+    {
+      "name": "upload_download_range_delete",
+      "pass": true,
+      "detail": {
+        "bytes": 1114112,
+        "sha256": "137c9e1666cfcb65306e735136f12fe344f9f4efdc9641d674faa8325a285433",
+        "range_bytes": 101
+      },
+      "seconds": 0.032
+    },
+    {
+      "name": "ordinary_sessions",
+      "pass": true,
+      "detail": {
+        "session_persists": true
+      },
+      "seconds": 0.003
+    },
+    {
+      "name": "legacy_language_and_crypt",
+      "pass": true,
+      "detail": {
+        "offset": "c",
+        "crypt": "vi69obcEbvghg",
+        "preg": 1,
+        "split": [
+          "a",
+          "b"
+        ],
+        "utf8_bytes": 9,
+        "mb_utf8_chars": 3
+      },
+      "seconds": 0.002
+    },
+    {
+      "name": "synthetic_sync_file_contract",
+      "pass": true,
+      "detail": {
+        "ok": true
+      },
+      "seconds": 0.001
+    },
+    {
+      "name": "upload_progress_early_session_path",
+      "pass": true,
+      "detail": {
+        "progress_state_created": false,
+        "ordinary_upload_ok": true
+      },
+      "seconds": 0.002
+    },
+    {
+      "name": "multipart_total_part_limit",
+      "pass": true,
+      "detail": {
+        "accepted_fields": 12
+      },
+      "seconds": 0.001
+    },
+    {
+      "name": "empty_file_controls_count_toward_total",
+      "pass": true,
+      "detail": {
+        "empty_file_controls_registered": 20
+      },
+      "seconds": 0.014
+    },
+    {
+      "name": "explicit_part_limit_includes_empty_file_controls",
+      "pass": true,
+      "detail": {
+        "empty_file_controls_registered": 20
+      },
+      "seconds": 0.003
+    },
+    {
+      "name": "bounded_unknown_multipart_header_memory",
+      "pass": true,
+      "detail": {
+        "request_bytes": 9000106,
+        "request_success": false,
+        "peak": null
+      },
+      "seconds": 0.273
+    },
+    {
+      "name": "bounded_duplicate_multipart_header_memory",
+      "pass": true,
+      "detail": {
+        "request_bytes": 6500106,
+        "request_success": false,
+        "peak": null
+      },
+      "seconds": 0.112
+    },
+    {
+      "name": "nested_input_and_existing_depth_limit",
+      "pass": true,
+      "detail": {
+        "normal_nesting_preserved": true,
+        "excessive_nesting_rejected": true
+      },
+      "seconds": 0.002
+    },
+    {
+      "name": "multipart_startup_oom_before_application",
+      "pass": true,
+      "detail": {
+        "worker_replaced": false,
+        "parent_alive": true,
+        "field_bytes": 33554432
+      },
+      "seconds": 0.107
+    },
+    {
+      "name": "oom_fail_fast_worker_replacement",
+      "pass": true,
+      "detail": {
+        "worker_replaced": false,
+        "shutdown_callback_ran": true,
+        "parent_alive": true
+      },
+      "seconds": 0.004
+    },
+    {
+      "name": "underlying_storage_allocation_failure",
+      "pass": true,
+      "detail": {
+        "worker_replaced": false,
+        "shutdown_callback_ran": true,
+        "parent_alive": true
+      },
+      "seconds": 0.006
+    },
+    {
+      "name": "allocation_size_overflow_failure",
+      "pass": true,
+      "detail": {
+        "worker_replaced": false,
+        "shutdown_callback_ran": true,
+        "parent_alive": true
+      },
+      "seconds": 0.004
+    },
+    {
+      "name": "fatal_warning_cleanup_repeated_worker",
+      "pass": true,
+      "detail": {
+        "cycles": 25,
+        "worker_count": 1,
+        "parent_alive": true
+      },
+      "seconds": 0.163
+    },
+    {
+      "name": "state_before_next_request_initialization",
+      "pass": true,
+      "detail": {
+        "early_request_state_mask": 736
+      },
+      "seconds": 0.002
+    },
+    {
+      "name": "execution_timeout_then_next_request",
+      "pass": true,
+      "detail": {
+        "worker_survived_timeout": true
+      },
+      "seconds": 1.987
+    }
+  ]
+}
